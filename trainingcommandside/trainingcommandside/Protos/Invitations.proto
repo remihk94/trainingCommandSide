@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option csharp_namespace = "trainingcommandside";
+
+package invitations.commands.v1;
+//import "google/protobuf/wrappers.proto";
+ 
+service Invitations {
+ 
+  rpc SendInvitaion (SendInvitaionRequest) returns (Response);
+  rpc CancelInvitaion (CancelInvitaionRequest) returns (Response);
+  rpc AcceptInvitaion (AcceptInvitaionRequest) returns (Response);
+  rpc RejectInvitaion (RejectInvitaionRequest) returns (Response);
+
+}
+
+message SendInvitaionRequest {
+  
+  string accountId = 1;
+  string subscriptionId = 2;
+  string memberId = 3;
+  string userId = 4;
+  repeated string permissions = 5;
+
+}
+ message CancelInvitaionRequest {
+   
+  string accountId = 1;
+  string subscriptionId = 2;
+  string memberId = 3;
+  string userId = 4;
+  repeated string permissions = 5;
+}
+message AcceptInvitaionRequest {
+  string accountId = 1;
+  string subscriptionId = 2;
+  string memberId = 3;
+  string userId = 4;
+}
+message RejectInvitaionRequest {
+  string accountId = 1;
+  string subscriptionId = 2;
+  string memberId = 3;
+  string userId = 4;
+}
+
+message Response {
+    string subscriptionId = 1;
+    string memberId = 2;
+  string message = 3;
+}
